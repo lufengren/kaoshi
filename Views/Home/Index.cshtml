@@ -1,0 +1,60 @@
+﻿@model users
+@{ Layout=null; }
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/css/index.css" />
+</head>
+
+<body>
+    <h1>Welcome to the dojo Activity center</h1>
+    <div class="logreg">
+            <h3>Login</h3>
+            <span>@ViewBag.mssg</span>
+            <form action="login" method="post">
+                Email:
+                <input type="email" name="email"> <br>
+                Password:
+                <input type="password" name="password"> <br>
+                <input type="submit" value="submit">
+            </form>
+        </div>
+
+    <div class="logreg">
+        <h3>Register</h3>
+        <span>@ViewBag.msg</span> <br>
+        <form asp-action="" asp-controller="Home" method="post">
+            <span asp-validation-for="firstname"></span>
+            <br> FirstName:
+            <input type="text" asp-for="firstname">
+            <br>
+            <span asp-validation-for="lastname"></span>
+            <br> LastName:
+            <input type="text" asp-for="lastname">
+            <br>
+            <span asp-validation-for="email"></span>
+            <br> Email:
+            <input type="text" asp-for="email">
+            <br>
+            <span asp-validation-for="password"></span>
+            <br> Password:
+            <input type="password" asp-for="password">
+            <br>
+
+            <span>@ViewBag.err</span> <br>
+            Confirm Password:
+            <input type="password" name="confirmpass">
+            <br>
+            <input type="submit" value="submit">
+        </form>
+    </div>
+
+
+</body>
+
+</html>

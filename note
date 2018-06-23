@@ -1,0 +1,40 @@
+@{
+                    if(@item.user.UserId==@ViewBag.userid){
+                        <a href="http://localhost:5000/delete/@item.eventid">Delete</a>
+                    }
+                    else if (@item.joins.Count == 0){
+                        <a href="http://localhost:5000/attend/@item.eventid">Join</a>
+                    }
+                    else{
+                        @foreach(var subitem in @item.joins){
+                            if(@subitem.UserId==@ViewBag.userid){
+                                <a href="http://localhost:5000/cancel/@item.eventid">Leave</a>
+                            }
+                            else{
+                                <a href="http://localhost:5000/attend/@item.eventid">Join</a>
+                            }
+                        }
+                    }
+                }
+
+
+
+
+        @{
+        if(@ViewBag.oneevent.user.UserId==@ViewBag.userid){
+            <a href="http://localhost:5000/delete/@ViewBag.userid">Delete</a>
+        }
+        else if (@ViewBag.oneevent.joins.Count == 0){
+            <a href="http://localhost:5000/attend/@ViewBag.oneevent.eventid">Join</a>
+        }
+        else{
+            @foreach(var subitem in @ViewBag.oneevent.joins){
+                if(@subitem.UserId==@ViewBag.userid){
+                    <a href="http://localhost:5000/cancel/@ViewBag.oneevent.eventid">Leave</a>
+                }
+                else{
+                    <a href="http://localhost:5000/attend/@ViewBag.oneevent.eventid">Join</a>
+                }
+            }
+        }
+    }

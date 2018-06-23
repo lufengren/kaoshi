@@ -1,0 +1,47 @@
+@model events
+@{ Layout=null; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/css/new.css" />
+</head>
+<body>
+    <h1>Dojo Activity Center</h1> 
+    <a href="Home">Home</a>
+    <a href="logoff">logoff</a> <br>
+    <hr>
+    <h3>Creat an Activity!</h3>
+    <span>@ViewBag.err</span> <br>
+    <form asp-action="New" asp-controller="Home" method="post">
+        <span asp-validation-for="title"></span> <br>
+        Title:
+        <input type="text" asp-for="title"> <br>
+
+        <span asp-validation-for="time"></span> <br>
+        Time:
+        <input type="text" asp-for="time"> <br>
+
+        <span asp-validation-for="date"></span> <br>
+        Date:
+        <input type="date" asp-for="date"> <br>
+
+        <span asp-validation-for="duration"></span> <br>
+        Duration:
+        <input type="text" asp-for="duration"> 
+        <select name="type">
+            <option value="hour">hour</option>
+            <option value="day">day</option>
+            <option value="minute">minute</option>
+        </select> <br>
+        <span asp-validation-for="description"></span> <br>
+        Description:
+        <textarea asp-for="description" cols="30" rows="4"></textarea> <br>
+        <input type="submit" value="Create Activity">
+
+    </form>
+</body>
+</html>

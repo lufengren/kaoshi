@@ -1,0 +1,49 @@
+@{ Layout=null; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Dojo Activity Center</h1> 
+    <a href="http://localhost:5000/Home">Home</a>
+    <a href="http://localhost:5000/logoff">logoff</a> <br>
+    <hr>
+    <h2>@ViewBag.oneevent.title</h2>
+    <h3>Event Coordinator: @ViewBag.oneevent.user.firstname</h3>
+    <h4>Description</h4>
+    <p>@ViewBag.oneevent.description</p>
+    <h4>Participants:</h4>
+    @foreach(var item in @ViewBag.oneevent.joins){
+        <p>@item.user.firstname</p>
+    }
+    <br>
+
+    @{
+        if(@ViewBag.oneevent.user.UserId==@ViewBag.userid){
+            <a href="http://localhost:5000/delete/@ViewBag.oneevent.eventid">Delete</a>
+        }
+        else{
+            int count=0;
+            if(@ViewBag.oneevent.joins.Count != 0){
+                @foreach(var subitem in @ViewBag.oneevent.joins){
+                    if(@subitem.UserId == @ViewBag.userid){
+                        count+=1;
+                    }
+                }
+                if(count>0){
+                   <td><a href="http://localhost:5000/cancel/@ViewBag.oneevent.eventid">Leave</a></td> 
+                }else{
+                    <td><a href="http://localhost:5000/attend/@ViewBag.oneevent.eventid">Join</a></td>
+                }
+            }
+            else{
+                <td><a href="http://localhost:5000/attend/@ViewBag.oneevent.eventid">Join</a></td>
+            }
+        }
+    }
+</body>
+</html>

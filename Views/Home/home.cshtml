@@ -1,0 +1,67 @@
+@{ Layout=null; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/css/home.css" />
+</head>
+<body>
+    <h1>Dojo Activity Center</h1> 
+    <h3>Welcome, @ViewBag.username &nbsp;&nbsp;&nbsp;&nbsp;
+            <small>
+                <a href="logoff">logoff</a>
+            </small>
+    </h3>
+    <hr>
+    <table>
+        <tr>
+            <th>Activity</th>
+            <th>Date and Time</th>
+            <th>Duration</th>
+            <th>event coordinator</th>
+            <th>Number of participants</th>
+            <th>Actions</th>
+        </tr>
+        @foreach(var item in @ViewBag.allevents){
+            <tr>
+            <td><a href="activity/@item.eventid">@item.title</a></td>
+            <td>@item.date.ToString("MM/dd")  @item.time</td>
+            <td>@item.duration</td>
+            <td>@item.user.firstname</td>
+            <td>@item.joins.Count</td>
+            
+                @{
+                    if(@item.user.UserId==@ViewBag.userid){
+                        <td><a href="http://localhost:5000/delete/@item.eventid">Delete</a></td>
+                    }
+                    else{
+                        int count=0;
+                        int jointId;
+                        if(@item.joins.Count != 0){
+                            @foreach(var subitem in @item.joins){
+                                if(@subitem.UserId == @ViewBag.userid){
+                                    count+=1;
+                                }
+                            }
+                            if(count>0){
+                               <td><a href="cancel/@item.eventid">Leave</a></td> 
+                            }else{
+                                <td><a href="http://localhost:5000/attend/@item.eventid">Join</a></td>
+                            }
+                        }
+                        else{
+                            <td><a href="http://localhost:5000/attend/@item.eventid">Join</a></td>
+                        }
+                    }
+                }
+            
+            </tr>
+        }
+    </table>
+
+    <a href="New"><button>Add New Activity</button></a>
+</body>
+</html>
