@@ -12,49 +12,82 @@
 </head>
 
 <body>
-    <h1>Welcome to the dojo Activity center</h1>
-    <div class="logreg">
-            <h3>Login</h3>
-            <span>@ViewBag.mssg</span>
-            <form action="login" method="post">
-                Email:
-                <input type="email" name="email"> <br>
-                Password:
-                <input type="password" name="password"> <br>
-                <input type="submit" value="submit">
-            </form>
+
+    <div class="container demo-1">
+        <div class="content">
+            <div id="large-header" class="large-header">
+                <canvas id="demo-canvas"></canvas>
+                <div class="reg_box">
+                    <h3>Register</h3>
+                    <span class="custom_errMsg">@ViewBag.msg</span>
+                    <form asp-action="" asp-controller="Home" method="post">
+                        <span asp-validation-for="firstname" class="custom_errMsg"></span>
+                        <div class="input_outer">
+                            <span class="u_user"></span>
+                            <input asp-for="firstname" class="text" style="color: #FFFFFF !important" type="text"
+                                placeholder="first name (at least two letters)">
+                        </div>
+                        <!-- <input type="text" asp-for="firstname"> -->
+
+                        <span asp-validation-for="lastname" class="custom_errMsg"></span>
+                        <div class="input_outer">
+                            <span class="u_user"></span>
+                            <input asp-for="lastname" class="text" style="color: #FFFFFF !important" type="text"
+                                placeholder="last name (at least two letters)">
+                        </div>
+                        <!-- <input type="text" asp-for="lastname"> -->
+
+                        <span asp-validation-for="email" class="custom_errMsg"></span>
+                        <div class="input_outer">
+                            <span class="u_email"></span>
+                            <input asp-for="email" class="text" style="color: #FFFFFF !important" type="email"
+                                placeholder="email">
+                        </div>
+                        <!-- <input type="text" asp-for="email"> -->
+
+                        <span asp-validation-for="password" class="custom_errMsg"></span>
+                        <div class="input_outer">
+                            <span class="us_uer"></span>
+                            <input asp-for="password" class="text" style="color: #FFFFFF !important" type="password"
+                                placeholder="password (at least 8 charactors)....">
+                        </div>
+                        <!-- <input type="password" asp-for="password"> -->
+                        <span class="custom_errMsg">@ViewBag.err</span>
+                        <div class="input_outer">
+                            <span class="us_uer"></span>
+                            <input name="confirmpass" class="text" style="color: #FFFFFF !important" type="password"
+                                placeholder="confirm password">
+                        </div>
+                        <!-- <input type="password" name="confirmpass"> -->
+                        <div class="mb2"><input type="submit" value="submit" class="act-but submit"></div>
+                        <!-- <input type="submit" value="submit"> -->
+                    </form>
+                </div>
+                <div class="logo_box">
+                    <h3>Login</h3>
+                    <span class="custom_errMsg">@ViewBag.mssg</span>
+                    <form action="login" method="post">
+                        <div class="input_outer custom_style">
+                            <span class="u_email"></span>
+                            <input name="email" class="text" type="email" placeholder="email">
+                        </div>
+                        <div class="input_outer custom_style">
+                            <span class="us_uer"></span>
+                            <input name="password" class="text" value="" type="password" placeholder="password">
+                        </div>
+                        <div class="mb2"><input type="submit" value="submit" class="act-but submit"></div>
+
+                        <!-- <div class="mb2"><a class="act-but submit" href="javascript:;" style="color: #FFFFFF">登录</a></div> -->
+                    </form>
+                </div>
+            </div>
         </div>
-
-    <div class="logreg">
-        <h3>Register</h3>
-        <span>@ViewBag.msg</span> <br>
-        <form asp-action="" asp-controller="Home" method="post">
-            <span asp-validation-for="firstname"></span>
-            <br> FirstName:
-            <input type="text" asp-for="firstname">
-            <br>
-            <span asp-validation-for="lastname"></span>
-            <br> LastName:
-            <input type="text" asp-for="lastname">
-            <br>
-            <span asp-validation-for="email"></span>
-            <br> Email:
-            <input type="text" asp-for="email">
-            <br>
-            <span asp-validation-for="password"></span>
-            <br> Password:
-            <input type="password" asp-for="password">
-            <br>
-
-            <span>@ViewBag.err</span> <br>
-            Confirm Password:
-            <input type="password" name="confirmpass">
-            <br>
-            <input type="submit" value="submit">
-        </form>
     </div>
 
-
+    <script src="~/js/TweenLite.min.js"></script>
+    <script src="~/js/EasePack.min.js"></script>
+    <script src="~/js/rAF.js"></script>
+    <script src="~/js/demo-1.js"></script>
 </body>
 
 </html>

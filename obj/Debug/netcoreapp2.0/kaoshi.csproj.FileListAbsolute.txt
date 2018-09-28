@@ -9,3 +9,14 @@
 /Users/jianbozhu/GitHubRepoAssignment/C#/kaoshi/obj/Debug/netcoreapp2.0/kaoshi.AssemblyInfo.cs
 /Users/jianbozhu/GitHubRepoAssignment/C#/kaoshi/obj/Debug/netcoreapp2.0/kaoshi.dll
 /Users/jianbozhu/GitHubRepoAssignment/C#/kaoshi/obj/Debug/netcoreapp2.0/kaoshi.pdb
+/Users/jianbozhu/Desktop/kaoshi/bin/Debug/netcoreapp2.0/kaoshi.deps.json
+/Users/jianbozhu/Desktop/kaoshi/bin/Debug/netcoreapp2.0/kaoshi.runtimeconfig.json
+/Users/jianbozhu/Desktop/kaoshi/bin/Debug/netcoreapp2.0/kaoshi.runtimeconfig.dev.json
+/Users/jianbozhu/Desktop/kaoshi/bin/Debug/netcoreapp2.0/kaoshi.dll
+/Users/jianbozhu/Desktop/kaoshi/bin/Debug/netcoreapp2.0/kaoshi.pdb
+/Users/jianbozhu/Desktop/kaoshi/obj/Debug/netcoreapp2.0/kaoshi.csprojResolveAssemblyReference.cache
+/Users/jianbozhu/Desktop/kaoshi/obj/Debug/netcoreapp2.0/kaoshi.csproj.CoreCompileInputs.cache
+/Users/jianbozhu/Desktop/kaoshi/obj/Debug/netcoreapp2.0/kaoshi.AssemblyInfoInputs.cache
+/Users/jianbozhu/Desktop/kaoshi/obj/Debug/netcoreapp2.0/kaoshi.AssemblyInfo.cs
+/Users/jianbozhu/Desktop/kaoshi/obj/Debug/netcoreapp2.0/kaoshi.dll
+/Users/jianbozhu/Desktop/kaoshi/obj/Debug/netcoreapp2.0/kaoshi.pdb

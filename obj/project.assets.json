@@ -12961,11 +12961,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/jianbozhu/GitHubRepoAssignment/C#/kaoshi/kaoshi.csproj",
+      "projectUniqueName": "/Users/jianbozhu/Desktop/kaoshi/kaoshi.csproj",
       "projectName": "kaoshi",
-      "projectPath": "/Users/jianbozhu/GitHubRepoAssignment/C#/kaoshi/kaoshi.csproj",
+      "projectPath": "/Users/jianbozhu/Desktop/kaoshi/kaoshi.csproj",
       "packagesPath": "/Users/jianbozhu/.nuget/packages/",
-      "outputPath": "/Users/jianbozhu/GitHubRepoAssignment/C#/kaoshi/obj/",
+      "outputPath": "/Users/jianbozhu/Desktop/kaoshi/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

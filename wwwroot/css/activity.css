@@ -46,6 +46,10 @@ body {
     background-color: transparent;
 }
 
-.card-body span {
-    color: red;
+.card-body p {
+    color: #222 !important;
+}
+
+.table-responsive {
+    overflow: hidden !important;
 }

@@ -1,49 +1,123 @@
 @{ Layout=null; }
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="~/css/activity.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
 </head>
-<body>
-    <h1>Dojo Activity Center</h1> 
-    <a href="http://localhost:5000/Home">Home</a>
-    <a href="http://localhost:5000/logoff">logoff</a> <br>
-    <hr>
-    <h2>@ViewBag.oneevent.title</h2>
-    <h3>Event Coordinator: @ViewBag.oneevent.user.firstname</h3>
-    <h4>Description</h4>
-    <p>@ViewBag.oneevent.description</p>
-    <h4>Participants:</h4>
-    @foreach(var item in @ViewBag.oneevent.joins){
-        <p>@item.user.firstname</p>
-    }
-    <br>
 
-    @{
-        if(@ViewBag.oneevent.user.UserId==@ViewBag.userid){
-            <a href="http://localhost:5000/delete/@ViewBag.oneevent.eventid">Delete</a>
-        }
-        else{
-            int count=0;
-            if(@ViewBag.oneevent.joins.Count != 0){
-                @foreach(var subitem in @ViewBag.oneevent.joins){
-                    if(@subitem.UserId == @ViewBag.userid){
-                        count+=1;
-                    }
-                }
-                if(count>0){
-                   <td><a href="http://localhost:5000/cancel/@ViewBag.oneevent.eventid">Leave</a></td> 
-                }else{
-                    <td><a href="http://localhost:5000/attend/@ViewBag.oneevent.eventid">Join</a></td>
-                }
-            }
-            else{
-                <td><a href="http://localhost:5000/attend/@ViewBag.oneevent.eventid">Join</a></td>
-            }
-        }
-    }
+<body>
+
+    <div class="main-wrapper">
+        <div class="navbr-bg"></div>
+        <nav class="navbar navbar-expand-sm navbar-dark">
+            <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:5000/Home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:5000/logoff">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Activity Detail</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Activity:</td>
+                                            <td>@ViewBag.oneevent.title</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Coordinator:</td>
+                                            <td>@ViewBag.oneevent.user.firstname</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Description:</td>
+                                            <td>@ViewBag.oneevent.description</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Attendees:</td>
+                                            <td>
+                                                @foreach(var item in @ViewBag.oneevent.joins){
+                                                <p>@item.user.firstname</p>
+                                                }
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="row justify-content-center">
+                                    <div class="col-1">
+
+                                        @{
+                                        if(@ViewBag.oneevent.user.UserId==@ViewBag.userid){
+                                        <a href="http://localhost:5000/delete/@ViewBag.oneevent.eventid" class="btn btn-danger btn-sm"
+                                            role="button">Delete</a>
+                                        }
+                                        else{
+                                        int count=0;
+                                        if(@ViewBag.oneevent.joins.Count != 0){
+                                        @foreach(var subitem in @ViewBag.oneevent.joins){
+                                        if(@subitem.UserId == @ViewBag.userid){
+                                        count+=1;
+                                        }
+                                        }
+                                        if(count>0){
+                                        <a href="http://localhost:5000/cancel/@ViewBag.oneevent.eventid" class="btn btn-warning btn-sm"
+                                            role="button">Leave</a>
+                                        }else{
+                                        <a href="http://localhost:5000/attend/@ViewBag.oneevent.eventid" class="btn btn-info btn-sm"
+                                            role="button">Attend</a>
+                                        }
+                                        }
+                                        else{
+                                        <a href="http://localhost:5000/attend/@ViewBag.oneevent.eventid" class="btn btn-info"
+                                            role="button">Attend</a>
+                                        }
+                                        }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

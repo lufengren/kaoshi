@@ -2,46 +2,118 @@
 @{ Layout=null; }
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="~/css/new.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
 </head>
+
 <body>
-    <h1>Dojo Activity Center</h1> 
-    <a href="Home">Home</a>
-    <a href="logoff">logoff</a> <br>
-    <hr>
-    <h3>Creat an Activity!</h3>
-    <span>@ViewBag.err</span> <br>
-    <form asp-action="New" asp-controller="Home" method="post">
-        <span asp-validation-for="title"></span> <br>
-        Title:
-        <input type="text" asp-for="title"> <br>
+    <div class="main-wrapper">
+        <div class="navbr-bg"></div>
+        <nav class="navbar navbar-expand-sm navbar-dark">
+            <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Home">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logoff">Logout <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Publish An Activity</h4>
+                        </div>
+                        <div class="card-body">
+                            <span>@ViewBag.err</span>
+                            <form asp-action="New" asp-controller="Home" method="post">
+                                <span asp-validation-for="title"></span>
+                                <div class="form-group row">
+                                    <label for="activityname" class="col-sm-3 col-form-label">Activity Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" asp-for="title" class="form-control" id="activityname"
+                                            placeholder="Enter activity name">
+                                    </div>
+                                </div>
 
-        <span asp-validation-for="time"></span> <br>
-        Time:
-        <input type="text" asp-for="time"> <br>
+                                <span asp-validation-for="time"></span>
+                                <div class="form-group row">
+                                    <label for="holdtime" class="col-sm-3 col-form-label">Hold Time</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" asp-for="time" class="form-control" id="holdtime"
+                                            placeholder="Enter hold time">
+                                    </div>
+                                </div>
 
-        <span asp-validation-for="date"></span> <br>
-        Date:
-        <input type="date" asp-for="date"> <br>
+                                <span asp-validation-for="date"></span>
+                                <div class="form-group row">
+                                    <label for="holddate" class="col-sm-3 col-form-label">Hold Date</label>
+                                    <div class="col-sm-9">
+                                        <input type="date" asp-for="date" class="form-control" id="holddate"
+                                            placeholder="Enter hold date">
+                                    </div>
+                                </div>
 
-        <span asp-validation-for="duration"></span> <br>
-        Duration:
-        <input type="text" asp-for="duration"> 
-        <select name="type">
-            <option value="hour">hour</option>
-            <option value="day">day</option>
-            <option value="minute">minute</option>
-        </select> <br>
-        <span asp-validation-for="description"></span> <br>
-        Description:
-        <textarea asp-for="description" cols="30" rows="4"></textarea> <br>
-        <input type="submit" value="Create Activity">
+                                <span asp-validation-for="duration"></span>
+                                <div class="form-group row">
+                                    <label for="duration" class="col-sm-3 col-form-label">Duration</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" asp-for="duration" class="form-control" id="duration"
+                                            placeholder="Enter duration">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <select class="form-control">
+                                            <option value="minute" selected>Minute</option>
+                                            <option value="hour">Hour</option>
+                                            <option value="day">Day</option>
+                                        </select>
+                                    </div>
+                                </div>
 
-    </form>
+                                <span asp-validation-for="description"></span>
+                                <div class="form-group row">
+                                    <label for="description" class="col-sm-3 col-form-label">Description</label>
+                                    <div class="col-sm-9">
+                                        <textarea asp-for="description" class="form-control" id="description" rows="3"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-2">
+                                        <input type="submit" value="Publish" class="btn btn-secondary btn-sm">
+                                    </div>
+
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
